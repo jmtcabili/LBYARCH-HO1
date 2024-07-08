@@ -11,18 +11,28 @@ flipVerticall:
     ;r8 :  width
     ;r9 :  height
     
+    mov r13, 0            ;r13: counter for columns passed
+    mov r14, 0
+    mov r15, 0
     
     mov rax, r8
     imul rax, r9
     imul rax, 3
-    add rax, rdx
-    sub rax, 3          ;rax points to last three byte
+    add rax, rdx         
     
-    mov rbx, rdx        ;rbx points to first three bytes
+    mov r14, r9
+    imul r14, 3           ;r14: the number of bytes per column
+    
+    mov r15, r14
+    imul r15, 2           ;r15: to offset two rows back
+    
+    sub rax, r14          ;rax points to first set of bytes in last row
+    mov rbx, rdx          ;rbx points to first three bytes
+    
     
     L1: 
         cmp rax, rbx
-        jz L2
+        jle L2            ;check if rax and rbx have met
         
         ;load bytes 
         mov r11b, [rax]   ;first byte of lower row
@@ -42,14 +52,24 @@ flipVerticall:
         
         mov[rax+2], r12b  ;swap bytes
         mov[rbx+2], r11b  ;swap bytes
+        inc r13           ;increment r13 every time 3 bytes on lower row have been swapped
         
         
-        add rbx, 3      ;edx points to next set of 3 bytes on upper half
-        sub rax, 3      ;ecx points to next set of 3 bytes on lower half
+        add rbx, 3        ;edx points to next set of 3 bytes on upper half      
         
-        jmp L1          ;jump back to L1
+        cmp r13, r9       ;check if all columns of a row have been passed
+        jnz next          
+        add rax, 3
+        sub rax, r15      ;offset by two rows
+        mov r13, 0
+        
+        jmp L1            ;reset loop
+        
+        next: 
+        add rax, 3        ;ecx points to next set of 3 bytes on lower half
+        jmp L1            ;jump back to L1
     
-    L2:                 ;rdx has flipped version at this point
+    L2:                   ;rdx has flipped version at this point
     
     mov r10, r8
     imul r10, r9
