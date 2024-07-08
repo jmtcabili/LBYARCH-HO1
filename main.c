@@ -2,14 +2,14 @@
 #include <stdlib.h>
 
 extern void flipVerticall(unsigned int*** img2,
-                          unsigned int img1[3][3][3],
-                          unsigned int m,
-                          unsigned int n);
+                          unsigned int img1[2][3][3],
+                          int m,
+                          int h);
 
 int main(){
 
-    unsigned int m = 3, h = 3; 
-    unsigned int inputArray[3][3][3] = {
+    int m = 3, h = 2; 
+    unsigned int inputArray[2][3][3] = {
                                 {
                                     {1, 2, 3},
                                     {4, 5, 6},
@@ -19,11 +19,6 @@ int main(){
                                     {10, 11, 12},
                                     {13, 14, 15},
                                     {16, 17, 18}
-                                },
-                                {
-                                    {19, 20, 21},
-                                    {22, 23, 24},
-                                    {25, 26, 27}
                                 }
     };
     
@@ -36,8 +31,8 @@ int main(){
     }
     flipVerticall(outputArray, inputArray, m, h);
 
-    outputArray[0][0][0] = 0; 
-    for (int i = 0; i < 3; i++){
+     
+    for (int i = 0; i < 2; i++){
         for(int j = 0; j < 3; j++){
             for (int k = 0; k < 3; k++){
                 printf("%d ", outputArray[i][j][k]);
