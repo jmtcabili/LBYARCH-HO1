@@ -63,8 +63,3 @@ int main(){
     
 }
 
-/*
-references
-
-https://stackoverflow.com/questions/2438142/dynamic-memory-allocation-for-3d-array
-*/
