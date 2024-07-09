@@ -66,7 +66,7 @@ flipVerticall:
         jmp L1            ;reset loop
         
         next: 
-        add rax, 3        ;ecx points to next set of 3 bytes on lower half
+        add rax, 3        ;rax points to next set of 3 bytes on lower half
         jmp L1            ;jump back to L1
     
     L2:                   ;rdx has flipped version at this point
@@ -75,7 +75,7 @@ flipVerticall:
     imul r10, r9
     imul r10, 3
     
-    copy:               ;copy contents of rdx to rcx
+    copy:                 ;copy contents of rdx to rcx
         cmp r10, 0
         jz end
         
