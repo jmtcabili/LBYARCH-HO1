@@ -32,11 +32,12 @@ int main(){
 
     flipVerticall(outputArray, inputArray, m, h);
 
+    int i,j,k;
      
-    for (int i = 0; i < m; i++){
-        for(int j = 0; j < h; j++){
+    for (i = 0; i < m; i++){
+        for(j = 0; j < h; j++){
             printf("[");
-            for (int k = 0; k < 3; k++){
+            for (k = 0; k < 3; k++){
                 printf("%d ", outputArray[i][j][k]);
             }
             printf("\b] ");            
