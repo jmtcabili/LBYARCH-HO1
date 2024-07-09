@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/yesha/Desktop/College/3rd year/3rd sem/LBYARCH/MCO1/LBYARCH-HO1",
-      "program": "c:/Users/yesha/Desktop/College/3rd year/3rd sem/LBYARCH/MCO1/LBYARCH-HO1/build/Debug/outDebug",
+      "cwd": "c:/Users/yesha/Desktop/College/3rd year/3rd sem/LBYARCH/MCO1/LBYARCH-HO1/LBYARCH-HO1",
+      "program": "c:/Users/yesha/Desktop/College/3rd year/3rd sem/LBYARCH/MCO1/LBYARCH-HO1/LBYARCH-HO1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
