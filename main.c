@@ -45,9 +45,22 @@ int main(){
     
     uint8_t outputArray[5][4][3] = {0}; 
 
+    printf("Input Array:\n");
+    int i, j, k;
+    for (i = 0; i < m; i++){
+        for(j = 0; j < h; j++){
+            printf("[");
+            for (k = 0; k < 3; k++){
+                printf("%d ", inputArray[i][j][k]);
+            }
+            printf("\b] ");            
+        }
+        printf("\n");
+    }
+
     flipVerticall(outputArray, inputArray, m, h);
 
-    int i,j,k;
+    printf("\nOutput Array:\n");
      
     for (i = 0; i < m; i++){
         for(j = 0; j < h; j++){
@@ -62,5 +75,6 @@ int main(){
 
     
     return 0; 
+    
 }
 
